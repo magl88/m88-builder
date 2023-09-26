@@ -1,0 +1,10 @@
+{
+  // Path to WordPress project in lockal
+  // "intelephense.environment.documentRoot": "D:\\OpenServer\\domains\\gulp-wp.loc\\",
+  // "intelephense.environment.includePaths": ["D:\\OpenServer\\domains\\gulp-wp.loc\\"],
+  "path-autocomplete.pathMappings": {
+    "@img": "${folder}/images", // alias for images
+    "@scss": "${folder}/scss", // alias for scss
+    "@js": "${folder}/js" // alias for js
+  }
+}
