@@ -1,0 +1,94 @@
+body {
+  // Скролл заблоковано
+  .lock & {
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+  }
+  // Сайт завантажений
+  .loaded & {
+  }
+}
+// =========================================
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  @supports (overflow: clip) {
+    overflow: clip;
+  }
+  // Притискаємо footer
+  > main {
+    flex: 1 1 auto;
+  }
+  // Фікс для слайдерів
+  > * {
+    min-width: 0;
+  }
+}
+// =========================================
+
+/*
+(i) Стилі будуть застосовуватись до
+всіх класів, що містять *__container
+Наприклад header__container, main__container і т.п.
+Сніппет (HTML): cnt
+*/
+@if ($responsiveType==1) {
+  // Чуйна
+  [class*='__container'] {
+    @if ($maxWidthContainer>0) {
+      max-width: rem($containerWidth);
+      margin: 0 auto;
+    }
+    @if ($containerPadding>0) {
+      @if ($maxWidthContainer>0) {
+        padding: 0 rem(math.div($containerPadding, 2));
+      } @else {
+        @include adaptiveValue('padding-left', math.div($containerPadding, 2), 15);
+        @include adaptiveValue('padding-right', math.div($containerPadding, 2), 15);
+      }
+    }
+  }
+} @else {
+  // Брейк-поїнтами
+  [class*='__container'] {
+    margin: 0 auto;
+    @if ($maxWidthContainer>0) {
+      max-width: rem($containerWidth);
+    } @else {
+      @if ($containerPadding>0) {
+        padding: 0 rem(math.div($containerPadding, 2));
+      }
+    }
+    @media (max-width: $pc) {
+      max-width: rem(970);
+    }
+    @media (max-width: $tablet) {
+      max-width: rem(750);
+    }
+    @media (max-width: $mobile) {
+      max-width: none;
+      @if ($containerPadding>0 and $maxWidthContainer>0) {
+        padding: 0 rem(math.div($containerPadding, 2));
+      }
+    }
+  }
+}
+// =========================================
+body {
+  background-color: rgb(35, 78, 153);
+}
+
+@media (max-width: 750px) {
+  body {
+    background-color: rgb(17, 255, 0);
+  }
+}
+
+@media (max-width: 750px) {
+  .header__logo {
+    color: rgb(98, 123, 97);
+  }
+}
