@@ -1,0 +1,11 @@
+export { images } from './images.js';
+export { svg } from './svg.js';
+export { favicons } from './favicons.js';
+export { fonts } from './fonts.js';
+export { html, php, setImg } from './files.js';
+export { webServer, webServerCreate } from './webserver.js';
+export { watch } from './watch.js';
+export { wordpress } from './wordpress.js';
+export { zip } from './zip.js';
+export { scss, minCss, setCssMinPath } from './css.js';
+export { js, minJS, setJSMinPath } from './js.js';
