@@ -1,5 +1,6 @@
 import pjson from '../../package.json' assert { type: 'json' };
 import newer from 'gulp-newer';
+import replace from 'gulp-replace';
 
 export const fonts = () => {
   return app.gulp
