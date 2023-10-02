@@ -15,10 +15,10 @@ export const wpFiles = () =>
       pictureHtml({
         primaryFormat: 'avif',
         primaryAfter: '/assets/img/',
-        primaryBefore: '/assets/avif/',
+        primaryBefore: '/assets/img/',
         secondaryFormat: 'webp',
         secondaryAfter: '/assets/img/',
-        secondaryBefore: '/assets/webp/',
+        secondaryBefore: '/assets/img/',
         srcsetOutput: 0,
         youtubeCoverWebp: true,
       })
