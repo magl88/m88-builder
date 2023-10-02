@@ -13,6 +13,8 @@ export const watch = () => {
     .watch(app.path.srcFolder + '**/*.php')
     .on('all', app.gulp.series(pjson.buildType == 'php' ? tasks.php : tasks.wordpress));
   app.gulp.watch(app.path.src.scssFolder + '**/*.*').on('all', app.gulp.series(tasks.scss));
-  app.gulp.watch(app.path.src.jsFolder + '**/*.*').on('all', app.gulp.series(tasks.js));
+  app.gulp.watch(app.path.src.jsFolder + 'scripts/*.js').on('all', app.gulp.series(tasks.concatScripts));
+  app.gulp.watch(app.path.src.jsFolder + 'libs/*.js').on('all', app.gulp.series(tasks.concatLibs));
+  app.gulp.watch(app.path.src.jsFolder + '*.js').on('all', app.gulp.series(tasks.jsBuild));
   app.gulp.watch(app.path.src.imagesFolder + '**/*.*').on('all', app.gulp.series(tasks.images));
 };
