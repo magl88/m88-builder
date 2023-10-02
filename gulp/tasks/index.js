@@ -8,4 +8,4 @@ export { watch } from './watch.js';
 export { wordpress } from './wordpress.js';
 export { zip } from './zip.js';
 export { scss, minCss, setCssMinPath } from './css.js';
-export { js, minJS, setJSMinPath } from './js.js';
+export { js, minJS, setJSMinPath, concatScripts, concatLibs, jsBuild } from './js.js';

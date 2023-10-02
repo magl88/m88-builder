@@ -3,21 +3,12 @@ import sourcemaps from 'gulp-sourcemaps';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
-import fs from 'fs';
-import getFolderSize from 'get-folder-size';
 import replace from 'gulp-replace';
-import { deleteAsync, deleteSync } from 'del';
+import { deleteSync } from 'del';
 
 export const concatLibs = () => {
-  const sizelibs = getFolderSize.loose(app.path.src.jsFolder + 'libs/');
-
-  if (sizelibs === 0) {
-    fs.writeFile(app.path.src.jsFolder + 'libs.js', '', function () {
-      console.log('libs clear');
-    });
-    return;
-  }
-
+  deleteSync(app.path.buildFolder + 'js/libs.js', { force: true });
+  deleteSync(app.path.src.jsFolder + 'libs.js', { force: true });
   return app.gulp
     .src(app.path.src.jsFolder + 'libs/**/*')
     .pipe(sourcemaps.init())
@@ -27,18 +18,8 @@ export const concatLibs = () => {
 };
 
 export const concatScripts = () => {
-  const sizescripts = getFolderSize.loose(app.path.src.jsFolder + 'scripts');
-
-  if (sizescripts === 0) {
-    fs.writeFile(app.path.src.jsFolder + 'scripts.js', '', function () {
-      console.log('scripts clear');
-    });
-
-    // deleteAsync(app.path.src.jsFolder + 'scripts.js', { force: true });
-    return;
-  }
-  const delscripts = () => deleteAsync(app.path.src.jsFolder + 'scripts.js', { force: true });
-  delscripts();
+  deleteSync(app.path.buildFolder + 'js/scripts.js', { force: true });
+  deleteSync(app.path.src.jsFolder + 'scripts.js', { force: true });
   return app.gulp
     .src(app.path.src.jsFolder + 'scripts/**/*')
     .pipe(sourcemaps.init())
