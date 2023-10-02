@@ -35,11 +35,11 @@ export const wpFiles = () =>
     .pipe(app.gulp.dest(app.path.buildFolder));
 
 export const wpScreenshot = () =>
-  app.gulp.src([app.path.srcFolder + 'wordpress/screenshot.png']).pipe(app.gulp.dest(app.path.buildFolder));
+  app.gulp.src([app.path.srcFolder + 'screenshot.png']).pipe(app.gulp.dest(app.path.buildFolder));
 
 export const wpStyle = () =>
   app.gulp
-    .src([app.path.srcFolder + 'wordpress/style.css'])
+    .src([app.path.srcFolder + 'style.css'])
     .pipe(replace('ThemeName', pjson.name))
     .pipe(app.gulp.dest(app.path.buildFolder));
 
