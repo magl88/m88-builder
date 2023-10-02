@@ -3,12 +3,13 @@
   // "intelephense.environment.documentRoot": "D:\\OpenServer\\domains\\gulp-wp.loc\\",
   // "intelephense.environment.includePaths": ["D:\\OpenServer\\domains\\gulp-wp.loc\\"],
   "path-autocomplete.pathMappings": {
-    "@root": "${folder}", // alias for js
-    "@src": "${folder}/src", // alias for js
-    "@assets": "${folder}/src/assets", // alias for images
-    "@fonts": "${folder}/src/assets/fonts", // alias for images
+    "@root": "${folder}", // alias for root
+    "@src": "${folder}/src", // alias for src
+    "@assets": "${folder}/src/assets", // alias for assets
+    "@fonts": "${folder}/src/assets/fonts", // alias for fonts
     "@img": "${folder}/src/assets/img", // alias for images
-    "@svg": "${folder}/src/assets/svg", // alias for images
+    "@sprite": "${folder}/src/assets/sprite", // alias for sprite
+    "@svg": "${folder}/src/assets/svg", // alias for svg
     "@scss": "${folder}/src/scss", // alias for scss
     "@js": "${folder}/src/js" // alias for js
   }
