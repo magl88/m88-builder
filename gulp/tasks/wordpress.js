@@ -10,7 +10,16 @@ export const wpFiles = () =>
       '!' + app.path.srcFolder + 'components/**',
       '!' + app.path.srcFolder + 'php/**',
     ])
-    .pipe(replace(/@img\//g, get_template_directory_uri() + 'assets/img/'))
+    .pipe(replace(/@root\//g, get_template_directory_uri() + '/'))
+    .pipe(replace(/@src\//g, get_template_directory_uri() + '/'))
+    .pipe(replace(/@assets\//g, get_template_directory_uri() + '/assets/'))
+    .pipe(replace(/@fonts\//g, get_template_directory_uri() + '/assets/fonts/'))
+    .pipe(replace(/@img\//g, get_template_directory_uri() + '/assets/img/'))
+    .pipe(replace(/@sprite\//g, get_template_directory_uri() + '/assets/sprite/'))
+    .pipe(replace(/@svg\//g, get_template_directory_uri() + '/assets/svg/'))
+    .pipe(replace(/@scss\//g, get_template_directory_uri() + '/scss/'))
+    .pipe(replace(/@css\//g, get_template_directory_uri() + '/css/'))
+    .pipe(replace(/@js\//g, get_template_directory_uri() + '/js/'))
     .pipe(
       pictureHtml({
         primaryFormat: 'avif',

@@ -24,7 +24,16 @@ export const html = () =>
   app.gulp
     .src(app.path.srcFolder + '*.html')
     .pipe(fileinclude())
+    .pipe(replace(/@root\//g, '/'))
+    .pipe(replace(/@src\//g, '/'))
+    .pipe(replace(/@assets\//g, '/assets/'))
+    .pipe(replace(/@fonts\//g, '/assets/fonts/'))
     .pipe(replace(/@img\//g, '/assets/img/'))
+    .pipe(replace(/@sprite\//g, '/assets/sprite/'))
+    .pipe(replace(/@svg\//g, '/assets/svg/'))
+    .pipe(replace(/@scss\//g, '/scss/'))
+    .pipe(replace(/@css\//g, '/css/'))
+    .pipe(replace(/@js\//g, '/js/'))
     .pipe(
       pictureHtml({
         primaryFormat: 'avif',
@@ -42,7 +51,16 @@ export const html = () =>
 export const php = () =>
   app.gulp
     .src([app.path.srcFolder + '*.php', app.path.srcFolder + 'inc/**/*.php'])
-    .pipe(replace(/@img\//g, 'assets/img/'))
+    .pipe(replace(/@root\//g, '/'))
+    .pipe(replace(/@src\//g, '/'))
+    .pipe(replace(/@assets\//g, '/assets/'))
+    .pipe(replace(/@fonts\//g, '/assets/fonts/'))
+    .pipe(replace(/@img\//g, '/assets/img/'))
+    .pipe(replace(/@sprite\//g, '/assets/sprite/'))
+    .pipe(replace(/@svg\//g, '/assets/svg/'))
+    .pipe(replace(/@scss\//g, '/scss/'))
+    .pipe(replace(/@css\//g, '/css/'))
+    .pipe(replace(/@js\//g, '/js/'))
     .pipe(
       pictureHtml({
         primaryFormat: 'avif',
