@@ -10,7 +10,7 @@ import replace from 'gulp-replace';
 export const toSvgSprite = () => {
   return (
     app.gulp
-      .src(app.path.src.assetsFolder + 'svg/**/*.svg')
+      .src(app.path.src.assetsFolder + 'svg-src/**/*.svg')
       // minify svg
       .pipe(
         svgmin({
@@ -51,6 +51,7 @@ export const toSvgSprite = () => {
           },
         })
       )
+      .pipe(app.gulp.dest(app.path.src.assetsFolder + 'sprite/'))
       .pipe(app.gulp.dest(app.path.buildFolder + 'assets/sprite/'))
   );
 };
@@ -58,8 +59,8 @@ export const toSvgSprite = () => {
 export const toPHP = () => {
   return (
     app.gulp
-      .src(app.path.src.assetsFolder + 'svg/**/*.svg')
-      .pipe(newer(app.path.buildFolder + 'assets/svg-php/'))
+      .src(app.path.src.assetsFolder + 'svg-src/**/*.svg')
+      .pipe(newer(app.path.src.assetsFolder + 'svg-php/'))
       // minify svg
       .pipe(
         svgmin({
@@ -86,6 +87,7 @@ export const toPHP = () => {
           path.extname = '.php';
         })
       )
+      .pipe(app.gulp.dest(app.path.src.assetsFolder + 'svg-php/'))
       .pipe(app.gulp.dest(app.path.buildFolder + 'assets/svg-php/'))
   );
 };
@@ -93,8 +95,8 @@ export const toPHP = () => {
 export const minSVG = () => {
   return (
     app.gulp
-      .src(app.path.src.assetsFolder + 'svg/**/*.svg')
-      .pipe(newer(app.path.buildFolder + 'assets/svg/'))
+      .src(app.path.src.assetsFolder + 'svg-src/**/*.svg')
+      .pipe(newer(app.path.src.assetsFolder + 'assets/svg/'))
       // minify svg
       .pipe(
         svgmin({
@@ -116,6 +118,7 @@ export const minSVG = () => {
       )
       // cheerio plugin create unnecessary string '&gt;', so replace it.
       .pipe(replace('&gt;', '>'))
+      .pipe(app.gulp.dest(app.path.src.assetsFolder + 'svg/'))
       .pipe(app.gulp.dest(app.path.buildFolder + 'assets/svg/'))
   );
 };
