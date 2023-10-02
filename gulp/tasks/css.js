@@ -6,7 +6,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
 import notify from 'gulp-notify';
 import replace from 'gulp-replace';
-import webpcss from 'gulp-webpcss';
+// import webpcss from 'gulp-webpcss';
 
 import rename from 'gulp-rename';
 import cleanCSS from 'gulp-clean-css';
@@ -26,23 +26,25 @@ export const scss = () => {
 };
 
 export const minCss = () => {
-  return app.gulp
-    .src([app.path.buildFolder + 'css/**/*.css', `!${app.path.buildFolder}css/**/*.min.css`])
-    .pipe(autoprefixer(['last 5 versions', '> 2%']))
-    .pipe(
-      webpcss({
-        webpClass: '.webp',
-        noWebpClass: '.no-webp',
-      })
-    )
-    .pipe(groupCssMediaQueries())
-    .pipe(cleanCSS())
-    .pipe(
-      rename(function (path) {
-        path.extname = '.min.css';
-      })
-    )
-    .pipe(app.gulp.dest(app.path.buildFolder + 'css/'));
+  return (
+    app.gulp
+      .src([app.path.buildFolder + 'css/**/*.css', `!${app.path.buildFolder}css/**/*.min.css`])
+      .pipe(autoprefixer(['last 5 versions', '> 2%']))
+      // .pipe(
+      //   webpcss({
+      //     webpClass: '.webp',
+      //     noWebpClass: '.no-webp',
+      //   })
+      // )
+      .pipe(groupCssMediaQueries())
+      .pipe(cleanCSS())
+      .pipe(
+        rename(function (path) {
+          path.extname = '.min.css';
+        })
+      )
+      .pipe(app.gulp.dest(app.path.buildFolder + 'css/'))
+  );
 };
 
 const setWPMinPath = () => {
