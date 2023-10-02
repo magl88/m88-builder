@@ -131,3 +131,10 @@ dist
 
 build/
 package-lock.json
+
+*.zip
+*.rar
+
+src/inc/
+src/*.html
+src/*.php
