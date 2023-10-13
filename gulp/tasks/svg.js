@@ -1,4 +1,4 @@
-import pjson from '../../package.json' assert { type: 'json' };
+import projectConst from '../../package.json' assert { type: 'json' };
 import gulp from 'gulp';
 import svgSprite from 'gulp-svg-sprite';
 import rename from 'gulp-rename';
@@ -123,6 +123,6 @@ export const minSVG = () => {
   );
 };
 
-// export const svg = gulp.parallel(toSvgSprite, minSVG, pjson.buildType == 'php' && toPHP);
+// export const svg = gulp.parallel(toSvgSprite, minSVG, projectConst.buildType == 'php' && toPHP);
 export const svg =
-  pjson.buildType !== 'html' ? gulp.parallel(toSvgSprite, minSVG, toPHP) : gulp.parallel(toSvgSprite, minSVG);
+  projectConst.buildType !== 'html' ? gulp.parallel(toSvgSprite, minSVG, toPHP) : gulp.parallel(toSvgSprite, minSVG);

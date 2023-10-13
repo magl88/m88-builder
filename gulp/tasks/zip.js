@@ -1,4 +1,4 @@
-import pjson from '../../package.json' assert { type: 'json' };
+import projectConst from '../../package.json' assert { type: 'json' };
 import { deleteAsync } from 'del';
 import zipPlugin from 'gulp-zip';
 
@@ -11,7 +11,7 @@ function camelize(str) {
 }
 
 export const zip = () => {
-  deleteAsync(`${app.path.rootFolder}${camelize(pjson.name)}.zip`);
+  deleteAsync(`${app.path.rootFolder}${camelize(projectConst.name)}.zip`);
   return (
     app.gulp
       .src(`${app.path.buildFolder}/**/*`, {})
@@ -23,7 +23,7 @@ export const zip = () => {
       //     })
       //   )
       // )
-      .pipe(zipPlugin(`${camelize(pjson.name)}.zip`))
+      .pipe(zipPlugin(`${camelize(projectConst.name)}.zip`))
       .pipe(app.gulp.dest(app.path.rootFolder))
   );
 };

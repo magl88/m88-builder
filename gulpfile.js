@@ -1,4 +1,4 @@
-import pjson from './package.json' assert { type: 'json' };
+import projectConst from './package.json' assert { type: 'json' };
 import gulp from 'gulp';
 import { deleteAsync } from 'del';
 
@@ -15,7 +15,7 @@ global.app = {
 const delBuild = () => deleteAsync(config.path.buildFolder, { force: true });
 
 const assets = gulp.parallel(tasks.favicons, tasks.fonts, tasks.svg, tasks.images);
-const start = gulp.parallel(assets, tasks[pjson.buildType], tasks.scss, tasks.js);
+const start = gulp.parallel(assets, tasks[projectConst.buildType], tasks.scss, tasks.js);
 
 gulp.task('default', gulp.parallel(tasks.webServer, tasks.watch));
 
@@ -25,7 +25,7 @@ gulp.task(
   'build',
   gulp.series(
     delBuild,
-    tasks[pjson.buildType],
+    tasks[projectConst.buildType],
     gulp.parallel(
       assets,
       gulp.series(tasks.scss, tasks.minCss, tasks.setCssMinPath),
@@ -38,7 +38,7 @@ gulp.task(
   'zip',
   gulp.series(
     delBuild,
-    tasks[pjson.buildType],
+    tasks[projectConst.buildType],
     gulp.parallel(
       assets,
       gulp.series(tasks.scss, tasks.minCss, tasks.setCssMinPath),

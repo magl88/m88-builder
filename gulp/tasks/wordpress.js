@@ -1,4 +1,4 @@
-import pjson from '../../package.json' assert { type: 'json' };
+import projectConst from '../../package.json' assert { type: 'json' };
 import replace from 'gulp-replace';
 import pictureHtml from 'gulp-webp-avif-html-nosvg-nogif-lazyload';
 import gulp from 'gulp';
@@ -44,7 +44,7 @@ export const wpScreenshot = () =>
 export const wpStyle = () =>
   app.gulp
     .src([app.path.srcFolder + 'style.css'])
-    .pipe(replace('ThemeName', pjson.name))
+    .pipe(replace('ThemeName', projectConst.name))
     .pipe(app.gulp.dest(app.path.buildFolder));
 
 export const wordpress = gulp.parallel(wpStyle, wpFiles, wpInc, wpScreenshot);

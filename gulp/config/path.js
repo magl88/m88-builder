@@ -1,9 +1,9 @@
 import * as nodePath from 'path';
-import pjson from '../../package.json' assert { type: 'json' };
+import projectConst from '../../package.json' assert { type: 'json' };
 const projectFolderName = nodePath.basename(nodePath.resolve());
 
 const rootFolder = `./`;
-const buildFolder = !pjson.buildFolder ? `${rootFolder}build/` : pjson.buildFolder;
+const buildFolder = !projectConst.buildFolder ? `${rootFolder}build/` : projectConst.buildFolder;
 const srcFolder = `${rootFolder}src/`;
 const wpFolder = `${rootFolder}src/wordpress/`;
 

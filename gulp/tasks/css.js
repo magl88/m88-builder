@@ -1,4 +1,4 @@
-import pjson from '../../package.json' assert { type: 'json' };
+import projectConst from '../../package.json' assert { type: 'json' };
 import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 const sass = gulpSass(dartSass);
@@ -69,4 +69,4 @@ const setHtmlMinPath = () => {
 };
 
 export const setCssMinPath =
-  pjson.buildType === 'html' ? setHtmlMinPath : pjson.buildType === 'php' ? setPHPMinPath : setWPMinPath;
+  projectConst.buildType === 'html' ? setHtmlMinPath : projectConst.buildType === 'php' ? setPHPMinPath : setWPMinPath;
