@@ -138,3 +138,5 @@ package-lock.json
 src/inc/
 src/*.html
 src/*.php
+src/assets/sprite
+src/assets/svg
