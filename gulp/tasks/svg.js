@@ -52,6 +52,7 @@ export const toSvgSprite = () => {
         })
       )
       .pipe(app.gulp.dest(app.path.src.assetsFolder + 'sprite/'))
+      .pipe(app.gulp.src(app.path.src.assetsFolder + 'sprite/**/*'))
       .pipe(app.gulp.dest(app.path.buildFolder + 'assets/sprite/'))
   );
 };
