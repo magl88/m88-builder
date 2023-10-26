@@ -48,3 +48,5 @@ gulp.task(
     delBuild
   )
 );
+
+gulp.task('clear', delBuild);

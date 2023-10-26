@@ -15,6 +15,7 @@
     "start": "gulp",
     "dev": "gulp dev ",
     "build": "gulp build",
+    "clear": "gulp clear",
     "zip": "gulp zip"
   },
   "repository": {
