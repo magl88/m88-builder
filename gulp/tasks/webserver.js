@@ -7,7 +7,7 @@ export const webServer = () =>
   webServerCreate.init({
     logPrefix: 'browserSync',
     https: true,
-    port: projectConst.port || 3333,
+    port: projectConst.port || 3000,
     proxy: !!projectConst.proxyURL && projectConst.proxyURL,
     server:
       projectConst.buildType !== 'html'
