@@ -34,6 +34,6 @@ function m88_add_favicons() {
   <meta name="theme-color" content="#ffffff">
   ';
 }
-
-  add_action( 'wp_head', 'm88_add_favicons', 1 );
+ 
+add_action( 'wp_head', 'm88_add_favicons', 1 );
 ?>

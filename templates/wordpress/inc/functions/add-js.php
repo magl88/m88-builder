@@ -1,6 +1,5 @@
 <?php
 if (!function_exists("add_scripts")) {
-  // если ф-я уже есть в дочерней теме - нам не надо её определять
   function add_scripts() {
     if (is_admin()) {
       return false;
@@ -27,6 +26,5 @@ if (!function_exists("add_scripts")) {
     wp_enqueue_script( 'main' );
   }
 }
-
-add_action("wp_footer", "add_scripts"); // приклеем ф-ю на добавление скриптов в футер
+add_action("wp_footer", "add_scripts");
 ?>
