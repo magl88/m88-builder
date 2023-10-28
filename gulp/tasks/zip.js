@@ -2,13 +2,13 @@ import projectConst from '../../package.json' assert { type: 'json' };
 import { deleteAsync } from 'del';
 import zipPlugin from 'gulp-zip';
 
-function camelize(str) {
+const camelize = (str) => {
   return str
     .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
       return index === 0 ? word.toLowerCase() : word.toUpperCase();
     })
     .replace(/\s+/g, '');
-}
+};
 
 export const zip = () => {
   deleteAsync(`${app.path.rootFolder}${camelize(projectConst.name)}.zip`);

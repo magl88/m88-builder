@@ -3,8 +3,8 @@ import replace from 'gulp-replace';
 import pictureHtml from 'gulp-webp-avif-html-nosvg-nogif-lazyload';
 import gulp from 'gulp';
 
-export const wpFiles = () =>
-  app.gulp
+export const wpFiles = () => {
+  return app.gulp
     .src([
       app.path.srcFolder + '**/*.php',
       '!' + app.path.srcFolder + 'inc/**',
@@ -34,17 +34,21 @@ export const wpFiles = () =>
     .pipe(replace(/@css\//g, '<?php echo get_template_directory_uri();?>/css/'))
     .pipe(replace(/@js\//g, '<?php echo get_template_directory_uri();?>/js/'))
     .pipe(app.gulp.dest(app.path.buildFolder));
+};
 
-export const wpInc = () =>
-  app.gulp.src([app.path.srcFolder + 'inc/**/*']).pipe(app.gulp.dest(app.path.buildFolder + 'inc'));
+export const wpInc = () => {
+  return app.gulp.src([app.path.srcFolder + 'inc/**/*']).pipe(app.gulp.dest(app.path.buildFolder + 'inc'));
+};
 
-export const wpScreenshot = () =>
-  app.gulp.src([app.path.srcFolder + 'screenshot.png']).pipe(app.gulp.dest(app.path.buildFolder));
+export const wpScreenshot = () => {
+  return app.gulp.src([app.path.srcFolder + 'screenshot.png']).pipe(app.gulp.dest(app.path.buildFolder));
+};
 
-export const wpStyle = () =>
-  app.gulp
+export const wpStyle = () => {
+  return app.gulp
     .src([app.path.srcFolder + 'style.css'])
     .pipe(replace('ThemeName', projectConst.name))
     .pipe(app.gulp.dest(app.path.buildFolder));
+};
 
 export const wordpress = gulp.parallel(wpStyle, wpFiles, wpInc, wpScreenshot);

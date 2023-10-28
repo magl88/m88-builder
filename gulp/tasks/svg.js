@@ -126,4 +126,4 @@ export const minSVG = () => {
 
 // export const svg = gulp.parallel(toSvgSprite, minSVG, projectConst.buildType == 'php' && toPHP);
 export const svg =
-  projectConst.buildType !== 'html' ? gulp.parallel(toSvgSprite, minSVG, toPHP) : gulp.parallel(toSvgSprite, minSVG);
+  projectConst.buildType !== 'html' ? gulp.parallel(toSvgSprite, minSVG) : gulp.parallel(toSvgSprite, minSVG);

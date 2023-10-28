@@ -3,7 +3,7 @@ import { create as browserSyncCreate } from 'browser-sync';
 
 export const webServerCreate = browserSyncCreate();
 
-export const webServer = () =>
+export const webServer = () => {
   webServerCreate.init({
     logPrefix: 'browserSync',
     https: true,
@@ -16,3 +16,4 @@ export const webServer = () =>
             baseDir: app.path.buildFolder,
           },
   });
+};

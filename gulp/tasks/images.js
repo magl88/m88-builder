@@ -29,31 +29,3 @@ export const toImageMin = () => {
 };
 
 export const images = gulp.parallel(toAvif, toWebp, toImageMin);
-
-// gulp.task('sprite:build', function () {
-//   var spriteData = gulp.src(path.build.icon).pipe(
-//     spritesmith({
-//       imgName: 'sprite.png',
-//       cssName: '_sprite.scss',
-//       algorithm: 'diagonal',
-//       imgPath: '../img/sprite.png',
-//     })
-//   );
-//   spriteData.img.pipe(gulp.dest(path.build.imgPath));
-//   spriteData.css.pipe(gulp.dest(path.build.sassPath));
-// });
-
-// gulp.task('img:build', function () {
-//   gulp
-//     .src(path.build.img)
-//     .pipe(
-//       imagemin({
-//         progressive: true,
-//         svgoPlugins: [{ removeViewBox: false }],
-//         use: [imageminPngquant()],
-//         interlaced: true,
-//       })
-//     )
-//     .pipe(gulp.dest(path.build.img))
-//     .pipe(reload({ stream: true }));
-// });

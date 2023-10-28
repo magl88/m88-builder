@@ -20,8 +20,8 @@ export const setImg = () => {
     .pipe(app.gulp.dest(app.path.buildFolder));
 };
 
-export const html = () =>
-  app.gulp
+export const html = () => {
+  return app.gulp
     .src(app.path.srcFolder + '*.html')
     .pipe(fileinclude())
     .pipe(replace(/@root\//g, '/'))
@@ -47,9 +47,10 @@ export const html = () =>
       })
     )
     .pipe(app.gulp.dest(app.path.buildFolder));
+};
 
-export const php = () =>
-  app.gulp
+export const php = () => {
+  return app.gulp
     .src([app.path.srcFolder + '*.php', app.path.srcFolder + 'inc/**/*.php'])
     .pipe(replace(/@root\//g, '/'))
     .pipe(replace(/@src\//g, '/'))
@@ -74,3 +75,4 @@ export const php = () =>
       })
     )
     .pipe(app.gulp.dest(app.path.buildFolder));
+};

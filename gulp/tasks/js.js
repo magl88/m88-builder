@@ -9,6 +9,7 @@ import { deleteSync } from 'del';
 export const concatLibs = () => {
   deleteSync(app.path.buildFolder + 'js/libs.js', { force: true });
   deleteSync(app.path.src.jsFolder + 'libs.js', { force: true });
+
   return app.gulp
     .src(app.path.src.jsFolder + 'libs/**/*')
     .pipe(sourcemaps.init())
@@ -20,6 +21,7 @@ export const concatLibs = () => {
 export const concatScripts = () => {
   deleteSync(app.path.buildFolder + 'js/scripts.js', { force: true });
   deleteSync(app.path.src.jsFolder + 'scripts.js', { force: true });
+
   return app.gulp
     .src(app.path.src.jsFolder + 'scripts/**/*')
     .pipe(sourcemaps.init())
