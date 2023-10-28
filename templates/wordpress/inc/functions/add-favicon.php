@@ -1,5 +1,6 @@
-<?php 
-function m88_add_favicons() {
+<?php
+add_action('wp_head', 'add_favicons', 1);
+function add_favicons() {
   echo '
   <link rel="apple-touch-icon" sizes="57x57"
   href="'. get_template_directory_uri() . '/assets/favicons/apple-icon-57x57.png">
@@ -34,6 +35,4 @@ function m88_add_favicons() {
   <meta name="theme-color" content="#ffffff">
   ';
 }
- 
-add_action( 'wp_head', 'm88_add_favicons', 1 );
 ?>
