@@ -40,6 +40,10 @@ export const wpInc = () => {
   return app.gulp.src([app.path.srcFolder + 'inc/**/*']).pipe(app.gulp.dest(app.path.buildFolder + 'inc'));
 };
 
+export const wpLanguages = () => {
+  return app.gulp.src([app.path.srcFolder + 'languages/**/*']).pipe(app.gulp.dest(app.path.buildFolder));
+};
+
 export const wpScreenshot = () => {
   return app.gulp.src([app.path.srcFolder + 'screenshot.png']).pipe(app.gulp.dest(app.path.buildFolder));
 };
@@ -51,4 +55,4 @@ export const wpStyle = () => {
     .pipe(app.gulp.dest(app.path.buildFolder));
 };
 
-export const wordpress = gulp.parallel(wpStyle, wpFiles, wpInc, wpScreenshot);
+export const wordpress = gulp.parallel(wpStyle, wpLanguages, wpFiles, wpInc, wpScreenshot);
