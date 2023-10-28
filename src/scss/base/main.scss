@@ -28,7 +28,6 @@ body {
   }
 }
 // =========================================
-
 /*
 (i) Стилі будуть застосовуватись до
 всіх класів, що містять *__container
@@ -74,21 +73,5 @@ body {
         padding: 0 rem(math.div($containerPadding, 2));
       }
     }
-  }
-}
-// =========================================
-body {
-  background-color: rgb(35, 78, 153);
-}
-
-@media (max-width: 750px) {
-  body {
-    background-color: rgb(17, 255, 0);
-  }
-}
-
-@media (max-width: 750px) {
-  .header__logo {
-    color: rgb(98, 123, 97);
   }
 }
