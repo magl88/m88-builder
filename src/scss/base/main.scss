@@ -36,7 +36,7 @@ body {
 */
 @if ($responsiveType==1) {
   // Чуйна
-  [class*='__container'] {
+  [class*="__container"] {
     @if ($maxWidthContainer>0) {
       max-width: rem($containerWidth);
       margin: 0 auto;
@@ -45,14 +45,14 @@ body {
       @if ($maxWidthContainer>0) {
         padding: 0 rem(math.div($containerPadding, 2));
       } @else {
-        @include adaptiveValue('padding-left', math.div($containerPadding, 2), 15);
-        @include adaptiveValue('padding-right', math.div($containerPadding, 2), 15);
+        @include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
+        @include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
       }
     }
   }
 } @else {
   // Брейк-поїнтами
-  [class*='__container'] {
+  [class*="__container"] {
     margin: 0 auto;
     @if ($maxWidthContainer>0) {
       max-width: rem($containerWidth);

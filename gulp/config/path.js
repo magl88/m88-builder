@@ -1,5 +1,5 @@
-import * as nodePath from 'path';
-import projectConst from '../../package.json' assert { type: 'json' };
+import * as nodePath from "path";
+import projectConst from "../../package.json" assert { type: "json" };
 const projectFolderName = nodePath.basename(nodePath.resolve());
 
 const rootFolder = `./`;

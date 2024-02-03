@@ -11,4 +11,3 @@ get_template_part('/inc/functions/add-languages');
 // get_template_part('/inc/functions/add-image-size');
 
 get_template_part('/inc/actions/index');
-?>

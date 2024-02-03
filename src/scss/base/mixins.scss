@@ -2,7 +2,9 @@
   @font-face {
     font-family: $font_name;
     font-display: swap;
-    src: url('../fonts/#{$file_name}.woff2') format('woff2'), url('../fonts/#{$file_name}.woff') format('woff');
+    src:
+      url("../fonts/#{$file_name}.woff2") format("woff2"),
+      url("../fonts/#{$file_name}.woff") format("woff");
     font-weight: #{$weight};
     font-style: #{$style};
   }
@@ -26,7 +28,7 @@
 //Currency
 @mixin currency($sym) {
   &::after {
-    content: '#{$sym}';
+    content: "#{$sym}";
   }
 }
 
@@ -38,7 +40,14 @@
 }
 
 // Адаптивна властивість (clamp)
-@mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
+@mixin adaptiveValue(
+  $property,
+  $startSize,
+  $minSize,
+  $keepSize: 0,
+  $widthFrom: $containerWidth,
+  $widthTo: $minWidth
+) {
   @if ($startSize==0) {
     $startSize: 0.000001;
   }
@@ -64,13 +73,13 @@
   @if ($yIntersection==0) {
     $yIntersection: 0.000001;
   }
-  $flyValue: #{rem($yIntersection)}' + ' #{$slope * 100}vw;
+  $flyValue: #{rem($yIntersection)}" + " #{$slope * 100}vw;
 
   // Отримання значення властивості
-  $propertyValue: #{'clamp(' rem($minSize) ',' $flyValue ',' rem($startSize) ')'};
+  $propertyValue: #{"clamp(" rem($minSize) "," $flyValue "," rem($startSize) ")"};
   // Якщо негативні значення
   @if ($minSize > $startSize) {
-    $propertyValue: #{'clamp(' rem($startSize) ',' $flyValue ',' rem($minSize) ')'};
+    $propertyValue: #{"clamp(" rem($startSize) "," $flyValue "," rem($minSize) ")"};
   }
 
   // Встановлюємо значення за замовчуванням
@@ -88,8 +97,10 @@
     // Якщо не підтримується clamp();
     @supports not (#{$property}: $propertyValue) {
       #{$property}: calc(
-        #{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{math.div($widthFrom, 16) -
-          math.div($widthTo, 16)}
+        #{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{math.div($widthFrom, 16) - math.div(
+            $widthTo,
+            16
+          )}
       );
     }
   }

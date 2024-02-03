@@ -1,11 +1,13 @@
 <?php
+
 /**
  * Replaces query version in registered scripts or styles with file modified time
  * @param string $src Source url
  * @param string $baseUrl Site base url
  * @return string
  */
-function put_modified_time_version($src, $baseUrl) {
+function put_modified_time_version($src, $baseUrl)
+{
   // Only work with objects from baseUrl
   if ($src && strpos($src, $baseUrl) === 0) {
     // Remove any version
@@ -26,7 +28,8 @@ function put_modified_time_version($src, $baseUrl) {
  * @param $src
  * @return string
  */
-function modified_time_version_style($src) {
+function modified_time_version_style($src)
+{
   // base_url from WP_Versions is already in memory
   return ($src) ? put_modified_time_version($src, wp_styles()->base_url) : $src;
 }
@@ -36,11 +39,11 @@ function modified_time_version_style($src) {
  * @param $src
  * @return string
  */
-function modified_time_version_script($src) {
+function modified_time_version_script($src)
+{
   // base_url from WP_Styles is already in memory
   return ($src) ? put_modified_time_version($src, wp_scripts()->base_url) : $src;
 }
 
 add_filter('style_loader_src', 'modified_time_version_style', 15, 1);
 add_filter('script_loader_src', 'modified_time_version_script', 15, 1);
-?>

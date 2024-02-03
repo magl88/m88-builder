@@ -13,7 +13,7 @@
   "proxyURL": "",
   "scripts": {
     "start": "gulp",
-    "dev": "gulp dev ",
+    "dev": "gulp dev",
     "build": "gulp build",
     "clear": "gulp clear",
     "zip": "gulp zip"
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@cedx/php-minifier": "^1.0.2",
+    "@prettier/plugin-php": "^0.22.1",
     "browser-sync": "^2.29.3",
     "del": "^7.1.0",
     "fs": "^0.0.1-security",
@@ -54,6 +55,7 @@
     "gulp-webp-avif-html-nosvg-nogif-lazyload": "^1.0.1",
     "gulp-webpcss": "^1.1.1",
     "gulp-zip": "^5.1.0",
+    "prettier": "^3.2.4",
     "sass": "^1.68.0",
     "vinyl-ftp": "^0.6.1"
   },

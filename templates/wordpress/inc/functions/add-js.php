@@ -14,7 +14,8 @@
 // =======================================
 add_action('wp_footer', 'add_footer_scripts');
 if (!function_exists('add_footer_scripts')) {
-  function add_footer_scripts() {
+  function add_footer_scripts()
+  {
     if (is_admin()) {
       return false;
     }
@@ -35,9 +36,18 @@ if (!function_exists('add_footer_scripts')) {
     wp_register_script('scripts', get_template_directory_uri() . '/js/scripts.js');
     wp_enqueue_script('scripts');
     // =======================================
+    // If need add ajax support
+    wp_localize_script(
+      'scripts',
+      'm88_ajax_object',
+      array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('ajax-nonce'),
+      )
+    );
+    // =======================================
     // wp_deregister_script('main');
     // wp_register_script('main', get_template_directory_uri() . '/js/main.js');
     // wp_enqueue_script('main');
   }
 }
-?>

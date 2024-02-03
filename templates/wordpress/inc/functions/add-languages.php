@@ -1,6 +1,7 @@
 <?php
 add_action('after_setup_theme', 'languages_setup');
-function languages_setup() {
+function languages_setup()
+{
   /*
   * Make theme available for translation.
   * Translations can be filed in the /languages/ directory.
@@ -9,4 +10,3 @@ function languages_setup() {
   */
   load_theme_textdomain('m88domain', get_template_directory() . '/languages');
 }
-?>

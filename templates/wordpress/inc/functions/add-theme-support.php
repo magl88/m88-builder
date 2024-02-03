@@ -1,6 +1,7 @@
 <?php
-add_action( 'after_setup_theme', 'theme_support' );
-function theme_support() {
+add_action('after_setup_theme', 'theme_support');
+function theme_support()
+{
   /*
   * Let WordPress manage the document title.
   * By adding theme support, we declare that this theme does not use a
@@ -33,4 +34,3 @@ function theme_support() {
     )
   );
 }
-?>

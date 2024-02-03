@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * https://polylang.pro/doc/function-reference/
  * 
@@ -11,7 +12,7 @@
  * 
  */
 add_action('init', 'polylang_translate');
-function polylang_translate() {
+function polylang_translate()
+{
   pll_register_string('Menu', 'menu', 'General');
 }
-?>

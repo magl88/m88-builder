@@ -1,6 +1,7 @@
 <?php
 if (!function_exists("pagination")) {
-  function pagination() {
+  function pagination()
+  {
     global $wp_query;
     $big = 999999999;
     $links = paginate_links([
@@ -32,4 +33,3 @@ if (!function_exists("pagination")) {
     }
   }
 }
-?>

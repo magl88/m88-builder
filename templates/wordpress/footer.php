@@ -2,18 +2,18 @@
   <div class="container">
     <div class="footer__content">
       <div class="footer__logo">
-        <a href="<?php echo get_bloginfo('url');?>">
-          <?php do_action( 'add_picture', 'logo', get_bloginfo('name'));?>
+        <a href="<?php echo get_bloginfo('url'); ?>">
+          <?php do_action('add_picture', 'logo', get_bloginfo('name')); ?>
         </a>
       </div>
       <?php wp_nav_menu([
-          'theme_location' => 'footer_menu',
-          'container'      => 'nav',
-          'container_class' => 'footer__nav',
-        ]);?>
+        'theme_location' => 'footer_menu',
+        'container'      => 'nav',
+        'container_class' => 'footer__nav',
+      ]); ?>
       <div class="footer__contacts">
         <div class="footer__contacts-title">
-          <?php esc_html_e('Contacts:');?>
+          <?php esc_html_e('Contacts:'); ?>
         </div>
         <div class="footer__contacts-content">
           <ul>
@@ -33,7 +33,7 @@
   </div>
   <div class="container">
     <div class="footer__copy">
-      <?php esc_html_e("Copyright &copy; 1988 - ". date("Y") . " " . get_bloginfo('name'), 'm88them'); ?>
+      <?php esc_html_e("Copyright &copy; 1988 - " . date("Y") . " " . get_bloginfo('name'), 'm88them'); ?>
     </div>
   </div>
 </footer>

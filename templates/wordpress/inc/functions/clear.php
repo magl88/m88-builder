@@ -1,11 +1,11 @@
 <?php
 // delete / before > on single tag
 add_filter('litespeed_buffer_after', 'remove_trailing_slashes', 0);
-function remove_trailing_slashes($content) {
-  if (is_admin()){
+function remove_trailing_slashes($content)
+{
+  if (is_admin()) {
     return $content;
-  }
-  else {
+  } else {
     return str_replace('/>', '>', $content);
   }
 }
@@ -13,7 +13,8 @@ function remove_trailing_slashes($content) {
 add_filter('use_widgets_block_editor', '__return_false');
 add_filter('show_admin_bar', '__return_false');
 add_action('after_setup_theme', 'disable_wbe_theme_support');
-function disable_wbe_theme_support() {
+function disable_wbe_theme_support()
+{
   remove_theme_support('widgets-block-editor');
 }
 // ====================================================================
@@ -27,7 +28,7 @@ remove_action('wp_head', 'wp_resource_hints', 2); //remove dns-prefetch
 remove_action('wp_head', 'wp_generator'); //remove meta name="generator"
 remove_action('wp_head', 'wlwmanifest_link'); //remove wlwmanifest
 remove_action('wp_head', 'rsd_link'); // remove EditURI
-remove_action('wp_head', 'rest_output_link_wp_head');// remove 'https://api.w.org/
+remove_action('wp_head', 'rest_output_link_wp_head'); // remove 'https://api.w.org/
 remove_action('wp_head', 'rel_canonical'); //remove canonical
 remove_action('wp_head', 'wp_shortlink_wp_head', 10); //remove shortlink
 remove_action('wp_head', 'wp_oembed_add_discovery_links'); //remove alternate
@@ -59,4 +60,3 @@ remove_action('admin_print_scripts', 'print_emoji_detection_script');
 // }
 // ====================================================================
 define('DISALLOW_FILE_EDIT', true);
-?>
