@@ -1,23 +1,23 @@
 :root {
-  // ==================================================
-  --default-placeholder-color: transparent;
-  // ==================================================
-  --black: #000;
-  --white: #fff;
-  --gray: gray;
-  // ==================================================
-  // Container values
-  --min-width: 320px;
-  --max-width: 1200px;
-  --con-padding: 0 15px;
-  // ==================================================
-  //body
-  --body-font-family: "Roboto", sans-serif;
-  --body-font-size: 16px;
-  --body-line-height: 20px;
-  --body-color: #000000;
-  --body-background-color: #ffffff;
-  // ==================================================
+	// ==================================================
+	--default-placeholder-color: transparent;
+	// ==================================================
+	--black: #000;
+	--white: #fff;
+	--gray: gray;
+	// ==================================================
+	// Container values
+	--min-width: 320px;
+	--max-width: 1200px;
+	--con-padding: 0 15px;
+	// ==================================================
+	//body
+	--body-font-family: "Roboto", sans-serif;
+	--body-font-size: 16px;
+	--body-line-height: 20px;
+	--body-color: #000000;
+	--body-background-color: #ffffff;
+	// ==================================================
 }
 $fontFamily: "Inter";
 $fontSize: rem(20); // де 14(px) - розмір шрифту за замовчуванням з макету

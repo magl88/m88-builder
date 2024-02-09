@@ -1,4 +1,4 @@
-import projectConst from "../../package.json" assert { type: "json" };
+import "dotenv/config";
 import * as dartSass from "sass";
 import gulpSass from "gulp-sass";
 const sass = gulpSass(dartSass);
@@ -13,69 +13,69 @@ import cleanCSS from "gulp-clean-css";
 import groupCssMediaQueries from "gulp-group-css-media-queries";
 
 export const scss = () => {
-  return app.gulp
-    .src([
-      app.path.src.scssFolder + "**/*.scss",
-      "!" + app.path.src.scssFolder + "base/**",
-      "!" + app.path.src.scssFolder + "sections/**",
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(sass().on("error", notify.onError()))
-    .pipe(replace(/@sprite/g, "../assets/sprite/sprite.svg"))
-    .pipe(replace(/@img\//g, "../assets/img/"))
-    .pipe(replace(/@fonts\//g, "../assets/fonts/"))
-    .pipe(sourcemaps.write())
-    .pipe(app.gulp.dest(app.path.buildFolder + "css"));
+	return app.gulp
+		.src([
+			app.path.src.scssFolder + "**/*.scss",
+			"!" + app.path.src.scssFolder + "base/**",
+			"!" + app.path.src.scssFolder + "sections/**",
+		])
+		.pipe(sourcemaps.init())
+		.pipe(sass().on("error", notify.onError()))
+		.pipe(replace(/@sprite/g, "../assets/sprite/sprite.svg"))
+		.pipe(replace(/@img\//g, "../assets/img/"))
+		.pipe(replace(/@fonts\//g, "../assets/fonts/"))
+		.pipe(sourcemaps.write())
+		.pipe(app.gulp.dest(app.path.buildFolder + "css"));
 };
 
 export const minCss = () => {
-  return (
-    app.gulp
-      .src([app.path.buildFolder + "css/**/*.css", `!${app.path.buildFolder}css/**/*.min.css`])
-      .pipe(replace(/@sprite/g, "../assets/sprite/sprite.svg"))
-      .pipe(autoprefixer(["last 5 versions", "> 2%"]))
-      // .pipe(
-      //   webpcss({
-      //     webpClass: '.webp',
-      //     noWebpClass: '.no-webp',
-      //   })
-      // )
+	return (
+		app.gulp
+			.src([app.path.buildFolder + "css/**/*.css", `!${app.path.buildFolder}css/**/*.min.css`])
+			.pipe(replace(/@sprite/g, "../assets/sprite/sprite.svg"))
+			.pipe(autoprefixer(["last 5 versions", "> 2%"]))
+			// .pipe(
+			//   webpcss({
+			//     webpClass: '.webp',
+			//     noWebpClass: '.no-webp',
+			//   })
+			// )
 
-      .pipe(groupCssMediaQueries())
-      .pipe(cleanCSS())
-      .pipe(
-        rename(function (path) {
-          path.extname = ".min.css";
-        }),
-      )
-      .pipe(app.gulp.dest(app.path.buildFolder + "css/"))
-  );
+			.pipe(groupCssMediaQueries())
+			.pipe(cleanCSS())
+			.pipe(
+				rename(function (path) {
+					path.extname = ".min.css";
+				}),
+			)
+			.pipe(app.gulp.dest(app.path.buildFolder + "css/"))
+	);
 };
 
 const setWPMinPath = () => {
-  return app.gulp
-    .src([app.path.buildFolder + "inc/functions/add-styles.php"])
-    .pipe(replace("styles.css", "styles.min.css"))
-    .pipe(app.gulp.dest(app.path.buildFolder + "inc/functions/"));
+	return app.gulp
+		.src([app.path.buildFolder + "inc/functions/add-styles.php"])
+		.pipe(replace("styles.css", "styles.min.css"))
+		.pipe(app.gulp.dest(app.path.buildFolder + "inc/functions/"));
 };
 
 const setPHPMinPath = () => {
-  return app.gulp
-    .src([app.path.buildFolder + "**/*.php"])
-    .pipe(replace("styles.css", "styles.min.css"))
-    .pipe(app.gulp.dest(app.path.buildFolder));
+	return app.gulp
+		.src([app.path.buildFolder + "**/*.php"])
+		.pipe(replace("styles.css", "styles.min.css"))
+		.pipe(app.gulp.dest(app.path.buildFolder));
 };
 
 const setHtmlMinPath = () => {
-  return app.gulp
-    .src([app.path.buildFolder + "*.html"])
-    .pipe(replace("styles.css", "styles.min.css"))
-    .pipe(app.gulp.dest(app.path.buildFolder));
+	return app.gulp
+		.src([app.path.buildFolder + "*.html"])
+		.pipe(replace("styles.css", "styles.min.css"))
+		.pipe(app.gulp.dest(app.path.buildFolder));
 };
 
 export const setCssMinPath =
-  projectConst.buildType === "html"
-    ? setHtmlMinPath
-    : projectConst.buildType === "php"
-      ? setPHPMinPath
-      : setWPMinPath;
+	process.env.BUILD_TYPE === "html"
+		? setHtmlMinPath
+		: process.env.BUILD_TYPE === "php"
+			? setPHPMinPath
+			: setWPMinPath;
