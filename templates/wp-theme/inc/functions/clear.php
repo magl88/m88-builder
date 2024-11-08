@@ -12,6 +12,7 @@ function remove_trailing_slashes($content)
 // ====================================================================
 add_filter('use_widgets_block_editor', '__return_false');
 add_filter('show_admin_bar', '__return_false');
+add_filter("wpcf7_autop_or_not", "__return_false");
 add_action('after_setup_theme', 'disable_wbe_theme_support');
 function disable_wbe_theme_support()
 {
