@@ -1,0 +1,51 @@
+version: '3'
+
+name: m88_wp
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.6
+    restart: unless-stopped
+    # ports:
+    #   - 8306:3306
+    volumes:
+      - "./data/mysql:/var/lib/mysql"
+    env_file: .env
+    environment:
+      MYSQL_ROOT_PASSWORD:  wordpress
+      MYSQL_DATABASE: wpdb
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      - m88_wp
+
+  wordpress:
+    container_name: wordpress
+    image: wordpress:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wpdb
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('FS_METHOD', 'direct');
+    volumes:
+      - ./data/wordpress:/var/www/html
+      - ./data/log/:/var/log
+      - ./configs/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+    ports:
+      - 8080:80
+    networks:
+      - m88_wp
+    depends_on:
+        - mysql
+    links:
+        - mysql
+
+networks:
+  m88_wp:
+    name: m88_wp
