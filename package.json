@@ -1,21 +1,22 @@
 {
 	"name": "m88-builder",
-	"version": "1.1.1",
+	"version": "2.0.0",
 	"description": "Gulp build template",
 	"author": "magl88",
 	"license": "ISC",
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/magl88/m88-builder"
+	},
 	"scripts": {
 		"init": "npm i --legacy-peer-deps",
 		"start": "gulp --cwd ./ --gulpfile ./configs/gulp/gulpfile.js",
 		"dev": "gulp dev --cwd ./ --gulpfile ./configs/gulp/gulpfile.js",
 		"build": "gulp build --cwd ./ --gulpfile ./configs/gulp/gulpfile.js",
 		"clear": "gulp clear --cwd ./ --gulpfile ./configs/gulp/gulpfile.js",
+		"ftpUpdate": "gulp ftp-update --cwd ./ --gulpfile ./configs/gulp/gulpfile.js",
 		"zip": "gulp zip --cwd ./ --gulpfile ./configs/gulp/gulpfile.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/magl88/m88-builder"
 	},
 	"devDependencies": {
 		"@cedx/php-minifier": "^1.0.2",
@@ -23,6 +24,7 @@
 		"browser-sync": "^2.29.3",
 		"del": "^7.1.0",
 		"dotenv": "^16.4.1",
+		"fancy-log": "^2.0.0",
 		"fs": "^0.0.1-security",
 		"get-folder-size": "^4.0.0",
 		"gulp": "^4.0.2",
