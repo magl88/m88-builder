@@ -4,8 +4,10 @@ const rootFolder = `./`;
 const buildFolder = !process.env.BUILD_FOLDER ? `${rootFolder}build/` : process.env.BUILD_FOLDER;
 const srcFolder = `${rootFolder}src/`;
 const wpFolder = `${rootFolder}src/wordpress/`;
+const themeFolder = `${wpFolder}wp-content/themes/${process.env.PROJECT_NAME}/`;
 
-export const path = {
+export const paths = {
+	themeFolder,
 	buildFolder: buildFolder,
 	rootFolder: rootFolder,
 	srcFolder: srcFolder,

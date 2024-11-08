@@ -2,17 +2,17 @@ import "dotenv/config";
 import gulp from "gulp";
 import { deleteAsync } from "del";
 
-import * as config from "./gulp/config/index.js";
-import * as tasks from "./gulp/tasks/index.js";
+import * as paths from "./paths.js";
+import * as tasks from "./tasks/index.js";
 
 global.app = {
 	isBuild: process.argv.includes("--build"),
 	isDev: !process.argv.includes("--build"),
 	gulp: gulp,
-	path: config.path,
+	paths: paths,
 };
 
-const delBuild = () => deleteAsync(config.path.buildFolder, { force: true });
+const delBuild = () => deleteAsync(paths.buildFolder, { force: true });
 
 const assets = gulp.parallel(tasks.favicons, tasks.fonts, tasks.svg, tasks.images);
 const start = gulp.parallel(assets, tasks[process.env.BUILD_TYPE], tasks.scss, tasks.js);
@@ -50,3 +50,4 @@ gulp.task(
 );
 
 gulp.task("clear", delBuild);
+gulp.task("ftp-update", gulp.series(tasks.ftpUpdate));

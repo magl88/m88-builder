@@ -7,5 +7,6 @@ export { webServer, webServerCreate } from "./webserver.js";
 export { watch } from "./watch.js";
 export { wordpress } from "./wordpress.js";
 export { zip } from "./zip.js";
+export { ftpUpdate } from "./ftp.js";
 export { scss, minCss, setCssMinPath } from "./css.js";
 export { js, minJS, setJSMinPath, concatScripts, concatLibs, jsBuild } from "./js.js";

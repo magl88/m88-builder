@@ -7,11 +7,11 @@
 	"type": "module",
 	"scripts": {
 		"init": "npm i --legacy-peer-deps",
-		"start": "gulp",
-		"dev": "gulp dev",
-		"build": "gulp build",
-		"clear": "gulp clear",
-		"zip": "gulp zip"
+		"start": "gulp --cwd ./ --gulpfile ./configs/gulp/gulpfile.js",
+		"dev": "gulp dev --cwd ./ --gulpfile ./configs/gulp/gulpfile.js",
+		"build": "gulp build --cwd ./ --gulpfile ./configs/gulp/gulpfile.js",
+		"clear": "gulp clear --cwd ./ --gulpfile ./configs/gulp/gulpfile.js",
+		"zip": "gulp zip --cwd ./ --gulpfile ./configs/gulp/gulpfile.js"
 	},
 	"repository": {
 		"type": "git",

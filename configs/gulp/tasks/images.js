@@ -8,7 +8,7 @@ export const toAvif = () => {
 	return app.gulp
 		.src(app.path.src.imagesFolder + "**/*.{png,jpg,jpeg}")
 		.pipe(newer(app.path.buildFolder + "assets/img"))
-		.pipe(avif({ quality: 50 }))
+		.pipe(avif())
 		.pipe(app.gulp.dest(app.path.buildFolder + "assets/img/"));
 };
 

@@ -63,24 +63,24 @@ export const toPHP = () => {
 			.src(app.path.src.assetsFolder + "svg-src/**/*.svg")
 			.pipe(newer(app.path.src.assetsFolder + "svg-php/"))
 			// minify svg
-			.pipe(
-				svgmin({
-					js2svg: {
-						pretty: true,
-					},
-				}),
-			)
-			// remove all fill, style and stroke declarations in out shapes
-			.pipe(
-				cheerio({
-					run: function ($) {
-						$("[fill]").removeAttr("fill");
-						$("[stroke]").removeAttr("stroke");
-						$("[style]").removeAttr("style");
-					},
-					parserOptions: { xmlMode: true },
-				}),
-			)
+			// .pipe(
+			// 	svgmin({
+			// 		js2svg: {
+			// 			pretty: true,
+			// 		},
+			// 	}),
+			// )
+			// // remove all fill, style and stroke declarations in out shapes
+			// .pipe(
+			// 	cheerio({
+			// 		run: function ($) {
+			// 			$("[fill]").removeAttr("fill");
+			// 			$("[stroke]").removeAttr("stroke");
+			// 			$("[style]").removeAttr("style");
+			// 		},
+			// 		parserOptions: { xmlMode: true },
+			// 	}),
+			// )
 			// cheerio plugin create unnecessary string '&gt;', so replace it.
 			.pipe(replace("&gt;", ">"))
 			.pipe(
@@ -127,5 +127,5 @@ export const minSVG = () => {
 // export const svg = gulp.parallel(toSvgSprite, minSVG, process.env.BUILD_TYPE == 'php' && toPHP);
 export const svg =
 	process.env.BUILD_TYPE !== "html"
-		? gulp.parallel(toSvgSprite, minSVG)
-		: gulp.parallel(toSvgSprite, minSVG);
+		? gulp.parallel(toSvgSprite, minSVG, toPHP)
+		: gulp.parallel(toSvgSprite, minSVG, toPHP);
