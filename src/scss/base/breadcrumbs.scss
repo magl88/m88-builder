@@ -1,0 +1,26 @@
+.breadcrumbs {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 10px;
+
+	* {
+		font-family: var(--font-family);
+		font-weight: 400;
+		font-size: 14px;
+		color: rgb(33 40 54 / 60%);
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+	}
+
+	strong {
+		color: #212836;
+	}
+}
+// =========================================
