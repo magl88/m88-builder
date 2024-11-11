@@ -9,7 +9,7 @@
 	<?php wp_body_open(); ?>
 	<div class="wrapper">
 		<?php get_header(); ?>
-		<main>
+		<main class="main">
 
 		<?php
 		while ( have_posts() ) :
